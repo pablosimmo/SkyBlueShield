@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var backToTop = document.getElementById('backToTop');
   if (backToTop) {
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 200) {
         backToTop.classList.add('show');
       } else {
         backToTop.classList.remove('show');

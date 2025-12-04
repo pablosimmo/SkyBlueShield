@@ -501,7 +501,7 @@ label {
 input, textarea {
   width: 100%;
   padding: 0.55rem 0.65rem;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1px solid #ccd4e0;
   font-family: inherit;
   font-size: 0.9rem;
