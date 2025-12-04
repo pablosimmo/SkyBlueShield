@@ -12,18 +12,21 @@
   <div class="page">
     <header>
       <div class="brand">
-        <img src="logo.png" alt="Sky Blue Shield logo" class="brand-logo-img" loading="lazy" />
+        <img src="logo.png" alt="Sky Blue Shield logo" class="brand-logo-img" />
         <div class="brand-text">
           <h1>Sky Blue Shield</h1>
           <span>Professional cybersecurity consultancy you can actually understand.</span>
         </div>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+
+      <!-- Mobile nav toggle button -->
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav aria-label="Main navigation">
+
+      <nav>
         <a href="#services">Services</a>
         <a href="#why">Why work with us</a>
         <a href="#contact">Contact</a>
@@ -39,8 +42,6 @@
             We help SMEs in Coventry &amp; Warwickshire understand their cyber risk, meet insurer and client
             expectations, and put sensible protections in place – without the jargon or enterprise price tag.
           </p>
-
-
           <div class="hero-badges">
             <span class="badge">Professional consultancy</span>
             <span class="badge">Fixed-price assessments</span>
@@ -312,15 +313,15 @@
             <form>
               <div>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+                <input id="name" name="name" type="text" placeholder="Your name" />
               </div>
               <div>
                 <label for="company">Company</label>
-                <input id="company" name="company" type="text" placeholder="Your organisation" autocomplete="organization" />
+                <input id="company" name="company" type="text" placeholder="Your organisation" />
               </div>
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+                <input id="email" name="email" type="email" placeholder="you@example.com" />
               </div>
               <div>
                 <label for="message">What would you like help with?</label>
@@ -338,16 +339,16 @@
             <p>
               If you prefer, you can also contact us directly:
             </p>
-            <p><strong>Email:</strong> <a href="mailto:pablosimmo@gmail.com">pablosimmo@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+447359069313">+44 (0) 7359 069313</a></p>
+            <p><strong>Email:</strong>
+              <a href="mailto:pablosimmo@gmail.com">pablosimmo@gmail.com</a>
+            </p>
+            <p><strong>Phone:</strong> <a href="tel:07359069313">+44 (0) 7359069313</a></p>
             <p class="subcopy">
               Most engagements start with a Security MOT. From there, we’ll decide together whether Cyber
               Essentials or quarterly steering support makes sense for your business.
             </p>
           </div>
         </div>
-
-        
       </section>
     </main>
   </div>
@@ -357,7 +358,9 @@
     <span>Professional cybersecurity consultancy you can actually understand.</span>
   </footer>
 
-  <button id="back-to-top" aria-label="Back to top">↑</button>
-<script src="script.js"></script>
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
