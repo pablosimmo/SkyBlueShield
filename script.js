@@ -99,4 +99,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+
+// Turn header white after scrolling
+var headerScroll = document.querySelector('header');
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 10) {
+    headerScroll.classList.add('scrolled');
+  } else {
+    headerScroll.classList.remove('scrolled');
+  }
+});
+
 });

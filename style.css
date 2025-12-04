@@ -37,11 +37,17 @@ a {
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: transparent; /* starts transparent at page top */
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.5rem 0 1.5rem;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 .nav-toggle {
   display: none;
@@ -626,4 +632,47 @@ footer {
 /* Hide strapline when burger menu is open */
 header.menu-open .brand-text span {
   display: none;
+}
+
+
+
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-wrap::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -150%;
+  width: 60%;
+  height: 160%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: shieldShimmer 30s ease-in-out infinite;
+}
+
+@keyframes shieldShimmer {
+  0%, 92% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+
+/* Header becomes white once user scrolls */
+header.scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
