@@ -43,6 +43,38 @@ header {
   gap: 1rem;
   padding: 0.5rem 0 1.5rem;
 }
+.nav-toggle {
+  display: none;
+  background: var(--brand-blue);
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  box-shadow: var(--shadow-soft);
+  z-index: 1000;
+}
+
+#backToTop.show {
+  display: block;
+}
+
 
 .brand {
   display: flex;
@@ -469,7 +501,7 @@ label {
 input, textarea {
   width: 100%;
   padding: 0.55rem 0.65rem;
-  border-radius: 8px;
+  border-radius: 50%;
   border: 1px solid #ccd4e0;
   font-family: inherit;
   font-size: 0.9rem;
@@ -570,4 +602,28 @@ footer {
   .hero-carousel {
     display: none;
   }
+}
+
+
+
+/* Default hamburger icon */
+.nav-toggle::before {
+  content: "☰";
+}
+
+/* When nav is open, show X */
+.nav-toggle.is-active::before {
+  content: "×";
+  font-size: 1.6rem;
+}
+
+.nav-toggle.is-active {
+  background: var(--accent);
+}
+
+
+
+/* Hide strapline when burger menu is open */
+header.menu-open .brand-text span {
+  display: none;
 }

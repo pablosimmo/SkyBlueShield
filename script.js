@@ -68,4 +68,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Start rotation on load
   startAutoRotate();
+
+  
+  // Mobile nav toggle
+  var navToggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('header nav');
+  var header = document.querySelector('header');
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      nav.classList.toggle('is-open');
+      navToggle.classList.toggle('is-active');
+      header.classList.toggle('menu-open');
+    });
+  }
+
+  // Back to top button
+  var backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 });
