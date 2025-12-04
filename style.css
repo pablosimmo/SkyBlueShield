@@ -37,17 +37,11 @@ a {
 }
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background: transparent; /* starts transparent at page top */
-  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.5rem 0 1.5rem;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 .nav-toggle {
   display: none;
@@ -671,8 +665,106 @@ header.menu-open .brand-text span {
 }
 
 
-/* Header becomes white once user scrolls */
-header.scrolled {
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.logo-wrap::before {
+  content:"";
+  position:absolute;
+  top:0; left:-60%;
+  width:160%; height:100%;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.95) 50%, transparent 100%);
+  transform:translateX(-160%) skewX(-20deg);
+  opacity:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  animation:logoShimmer 10s ease-in-out infinite;
+}
+@keyframes logoShimmer {
+  0%,85% {transform:translateX(-160%) skewX(-20deg); opacity:0;}
+  90% {opacity:1;}
+  100% {transform:translateX(60%) skewX(-20deg); opacity:0;}
+}
+
+
+.hero-carousel-inner {
+  position:relative;
+  overflow:hidden;
+}
+.hero-carousel-inner::before {
+  content:"";
+  position:absolute;
+  top:0; left:-50%;
+  width:180%; height:100%;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%);
+  transform:translateX(-160%) skewX(-15deg);
+  opacity:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+.hero-carousel-inner.is-shimmering::before {
+  animation:carouselShimmer 1.8s ease-out;
+}
+@keyframes carouselShimmer {
+  0% {transform:translateX(-160%) skewX(-15deg); opacity:0;}
+  20% {opacity:0.9;}
+  80% {transform:translateX(60%) skewX(-15deg); opacity:0.9;}
+  100% {transform:translateX(90%) skewX(-15deg); opacity:0;}
+}
+
+
+
+/* BUTTON SHIMMER WRAPPER */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* FULL COLOUR GRADIENT SHIMMER */
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 0, 102, 0.4) 0%,
+    rgba(255, 153, 0, 0.5) 20%,
+    rgba(255, 255, 0, 0.6) 40%,
+    rgba(0, 255, 102, 0.5) 60%,
+    rgba(0, 153, 255, 0.5) 80%,
+    rgba(153, 51, 255, 0.5) 100%
+  );
+  transform: translateX(-140%) skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: buttonShimmer 3.5s ease-in-out infinite;
+}
+
+/* Animation behaviour */
+@keyframes buttonShimmer {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateX(40%) skewX(-20deg);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(140%) skewX(-20deg);
+    opacity: 0;
+  }
 }

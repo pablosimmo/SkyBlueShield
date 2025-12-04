@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var prev = document.querySelector('.hero-carousel-prev');
   var next = document.querySelector('.hero-carousel-next');
   var carousel = document.querySelector('.hero-carousel');
+var carouselInner = document.querySelector('.hero-carousel-inner');
 
   if (!slides.length || !dots.length || !prev || !next || !carousel) return;
 
@@ -19,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var autoRotate;
 
   function showSlide(index) {
+    if (carouselInner) {
+        carouselInner.classList.remove('is-shimmering');
+        void carouselInner.offsetWidth;
+        carouselInner.classList.add('is-shimmering');
+    }
+
     current = (index + slides.length) % slides.length;
 
     slides.forEach(function (slide, i) {
@@ -98,16 +105,5 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-
-// Turn header white after scrolling
-var headerScroll = document.querySelector('header');
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 10) {
-    headerScroll.classList.add('scrolled');
-  } else {
-    headerScroll.classList.remove('scrolled');
-  }
-});
 
 });
