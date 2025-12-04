@@ -17,10 +17,6 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #f3f5f9;
@@ -85,38 +81,6 @@ nav a {
 nav a:hover {
   background: var(--brand-blue-light);
   color: var(--brand-blue);
-}
-
-/* Mobile nav toggle (hidden by default) */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--brand-blue);
-  margin: 4px 0;
-  border-radius: 999px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-/* Animate to X when active */
-.nav-toggle.is-active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.nav-toggle.is-active span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.is-active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
 }
 
 main {
@@ -336,7 +300,7 @@ main {
   background: rgba(255,255,255,0.5);
   border-radius: 999px;
   cursor: pointer;
-  transition: width 0.2s ease, background 0.2s ease;
+  transition: width 0.2s ease, background 0.2s.ease;
 }
 
 .hero-carousel-dot.is-active {
@@ -350,7 +314,6 @@ section {
   border-radius: var(--radius-lg);
   padding: 1.8rem 1.6rem 1.6rem;
   box-shadow: var(--shadow-soft);
-  scroll-margin-top: 90px;
 }
 
 section + section {
@@ -554,28 +517,6 @@ footer {
   gap: 0.5rem;
 }
 
-/* Back to top button */
-#backToTop {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  padding: 0.6rem 0.8rem;
-  border-radius: 50%;
-  border: none;
-  background: var(--accent);
-  color: #ffffff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-soft);
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
-#backToTop.show {
-  display: block;
-  opacity: 1;
-}
-
 /* Responsive */
 @media (max-width: 860px) {
   .hero {
@@ -623,5 +564,10 @@ footer {
 
   .nav-toggle {
     display: block;
+  }
+
+  /* Hide hero carousel on small screens */
+  .hero-carousel {
+    display: none;
   }
 }
